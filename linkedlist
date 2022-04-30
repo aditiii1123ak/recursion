@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+//a structre to create alinked list 
+ 
+ typedef struct node 
+ { 
+ int data;
+ struct node*next;
+ 	
+ }node;
+ 
+ //let us write a function to creat a linked list
+  
+ node*creatlinkedlis(int n);
+  void dispalist(node*head);
+  
+ int main(){
+ 	int n=0;
+ 	node*HEAD=NULL;
+ 	printf("\nHow many nodes:");
+ 	scanf("%d",&n);
+ 	HEAD=creatlinkedlist(n);
+    displaylist(HEAD);	
+ 	 return 0;
+ }
+node*createlinkedlist(int n)
+{ 
+int i=0;
+node*head=NULL;
+node*temp=NULL;
+node*p=NULL;
+
+for (i=0;i<n;i++)
+{
+	//let us creat individual node
+     
+    temp=(node*)malloc(sizeof(node));
+    printf("\nEnter the data for node number:",i+1);
+    scanf("%d",&(temp->data));
+    temp->next=NULL;
+    
+    if (head==NULL)//if list is currently empty,then make temp as first node 
+    {
+    	head=temp;
+	}
+	else 
+	{
+		p=head;
+		while(p->next!=NULL)
+		p=p->next;
+		p->next=temp;
+		
+	}
+}
+
+return head;
+}
+void displayList(node*head)
+{
+	node*p=head;
+	while(p!=NULL)
+	{
+		 printf("\t%d->,p->data");
+		 p=p->next;
+}
+}
+
+
+
+
+
+
+
+
